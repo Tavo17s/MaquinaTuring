@@ -7,15 +7,17 @@ $(function() {
             return false;
         }else{
             $(this).popover('hide');
-            ClearRows(4);
-            LoadString(id);
+            Stop();
             Clear();
+            ClearRows(4);
+            LoadString(id);    
             return true;
         }
     });
     $('#evaluar').click(
 
         function(){
+            Stop();
             id = ID;
             time = 1000 - $("#rango").val();
             Tick = setInterval(function(){Evaluate(id)}, time);
