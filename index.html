@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Máquinas de Turing</title>
+        <script type="text/javascript" src="scripts/jquery.js"></script>
+        <script type="text/javascript" src="scripts/bootstrap.js"></script>
+        <script type="text/javascript" src="scripts/turing.js"></script>
+        <script type="text/javascript" src="scripts/ui.js"></script>
+        <script type="text/javascript" src="scripts/modal.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/modal.css">
+        <link rel="stylesheet" type="text/css" href="css/fontawesome.css">        
+    </head>
+    <body>
+      <!--
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-3">Máquinas de Turing</h1>
+                <p class="lead">Simulador de máquinas de Turing</p>
+                <hr class="my-4">
+              </div>
+        </div>
+        -->
+        <div class="sticky-top bg-white">
+            <h1 class="text-center">
+                <strong id="etiqueta">MAQUINA DE TURING</strong>
+            </h1>
+          <div class="d-flex justify-content-center mt-1 mb-5 ">
+              <div class="row">
+                  <div class="col">
+                      <ul class="nav nav-tabs small" role="tablist">
+                      </ul>
+                  </div>
+              </div>
+          </div>
+            <center>
+              <div class="d-block">
+                  <div class="col-6 my-3">
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Cadena" id="cadena">
+                        <span class="input-group-btn">
+                          <button class="btn btn-info" type="button" id="cargar" data-toggle="popover1" title="Error de entrada"  data-content="La cadena está vacía." data-placemente="right" data-trigger="focus">Cargar</button>
+                          <button class="btn btn-secondary" id="info"><strong>?</strong></button>
+                        </span>                                  
+                      </div>
+                  </div>  
+                  <div class="col-3 my-4">
+                      <p class="lead">Contador: <span id="contador">0</span> | Estado: <span id="estado">0</span></p>
+                      
+                      <div class="slidecontainer">
+                        Velocidad:<br>
+                        <input type="range" min="0" max="1000" value="500"  step="100"class="slider" id="rango"><p></p>
+                      </div>
+                      <div class="btn-group" role="group" aria-label="Funciones">
+                            <button class="btn btn-danger" id="evaluar" content="1">Evaluar</button>
+                            <button class="btn btn-warning" id="evaluar" content="1" onclick="Stop();">Detener</button>
+                      </div>                      
+                      
+                  </div>
+              </div>
+            </center>
+      </div>
+
+            <div class="tab-pane" id="tab4" role="tabpanel">
+                <center>
+                        <div class="d-inline ">
+                                <div class="col-10">
+                                    <table id="tabla4" class="table table-hover text-center table-responsive">
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>    
+                            </div>
+                  </center>
+            </div>
+
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitle"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="modalText" class="lead"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <div class="modal fade" id="instrucciones4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitle"><h2>MAQUINA DE TURING</h2></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h5>Actividad:</h5>
+                            <p class="text-center">
+                                Construya una máquina de Turing que analice una cadena sobre {a,b, } y cambie todas sus bes y espacios por aes. La cabeza inicia sobre el primer simbolo de la izquierda y debe terminar sobre este simbolo.
+                            </p>
+                            <h5>Ejemplos:</h5>
+                            <p class="text-center">
+                                q->a b a bab<br>
+                                Q->aaaaaaaa<br>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+</html>
