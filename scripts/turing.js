@@ -6,6 +6,7 @@ $(function() {
             $(this).popover('show');
             return false;
         }else{
+            updateNetwork(9);
             $(this).popover('hide');
             Stop();
             Clear();
