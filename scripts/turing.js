@@ -15,12 +15,14 @@ $(function() {
         }
     });
     $('#evaluar').click(
+
         function(){
             Stop();
             id = ID;
             time = 1000 - $("#rango").val();
             Tick = setInterval(function(){Evaluate(id)}, time);
         }
+
     );
 });
 
@@ -34,7 +36,7 @@ function AddBlank(table){
 function LoadString(table){
     var cadena = $('#cadena').val();
         ClearRows(table);
-        AddRow('ß', "active-row", "bg-info text-light", table);
+        AddRow('Ɛ', "active-row", "bg-info text-light", table);
         for(i = 0; i < cadena.length; i++){
             AddRow(cadena.charAt(i), "", "", table);
         }
@@ -45,9 +47,9 @@ function LoadString(table){
 function EvaluateStep(symbol, id){
     Machines[id].Count++;
     symbols = Machines[id][Machines[id].State]
-    console.log(symbols[symbol]);
-    if(symbols[symbol] == undefined) return { Error : true, Acceptable : Machines[id].Functions.Acceptable(Machines[id].State), Message : `El símbolo <strong>'${symbol}'</strong> no tiene transición definida en el estado <strong>${Machines[id].State}</strong> de esta máquina. ${symbols.ERROR ? symbols.ERROR : ''}`};
     NextValues = symbols[symbol];
+    updateNetwork(NextValues[3]);
+    if(symbols[symbol] == undefined) return { Error : true, Acceptable : Machines[id].Functions.Acceptable(Machines[id].State), Message : `El símbolo <strong>'${symbol}'</strong> no tiene transición definida en el estado <strong>${Machines[id].State}</strong> de esta máquina. ${symbols.ERROR ? symbols.ERROR : ''}`};
     Machines[id].State = NextValues[1];
     return { Error : false, Acceptable: Machines[id].Functions.Acceptable(Machines[id].State), Output : NextValues[0], Movement : NextValues[2] };
 }
@@ -99,20 +101,17 @@ function Stop(){
 function SetMachine4(){
 
     Machines[4][0] = {
-        'a' : ['a', 1, 1],
-        'b' : ['a', 1, 1],
-        '' : ['a', 1, 1],
-        'ß' : ['ß', 1 , 1]
+        'Ɛ' : ['Ɛ', 1 , 1, 9]
     }
     Machines[4][1] = {
-        'a' : ['a', 1, 1],
-        'b' : ['a', 1, 1],
-        '' : ['a', 1, 1],
-        'ß' : ['ß', 2, -1] 
+        'a' : ['a', 1, 1, 3],
+        'b' : ['a', 1, 1, 2],
+        '' : ['a', 1, 1, 1],
+        'Ɛ' : ['Ɛ', 2, -1, 4] 
     }
     Machines[4][2] = {
-        'a' : ['a', 2, -1],
-        'ß' : ['ß', 3, 1]
+        'a' : ['a', 2, -1, 5],
+        'Ɛ' : ['Ɛ', 3, 1, 6]
     }
     Machines[4][3] = {
         'a' : ['a', 10, 0]

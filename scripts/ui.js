@@ -1,18 +1,10 @@
-  /*****************/
- /* APP VARIABLES */
-/*****************/
-
-const BLANK = 'ß';
+const BLANK = 'Ɛ';
 var Tick = undefined;
 ID = 4;
 var Machines = {
     4 : new Array()
 }
 ClearRows(4);
-
-  /****************/
- /* UI FUNCTIONS */
-/****************/
 
 $(function() {
     Clear();
@@ -85,3 +77,4 @@ function Update(){
        // SET STATE TO MACHINE'S HEAD
        $('#estado').text(Machines[ID].State);
 }
+
