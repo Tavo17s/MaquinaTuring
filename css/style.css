@@ -3,3 +3,13 @@
   height: 400px;
   border: 1px solid lightgray;
 }
+
+.cabecera {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  text-align: center;
+  background-color: #76d7c4;
+}
