@@ -25,6 +25,14 @@ var options = {
     nodes:{
     shape: 'circle',
     },
+    edges:{
+        smooth: {
+            type: 'cubicBezier',
+            forceDirection: 'vertical',
+            roundness: 0.9,
+            enabled: true
+          },
+    },
     physics: {
         enabled: true,
         barnesHut: {
@@ -38,26 +46,26 @@ var options = {
     interaction: {
         dragNodes: false,
         dragView: false,
+        zoomView: false,
         hover: false,
         selectable: false
         }
 }
 
 var network = new vis.Network(container, data,options);
-network.moveTo({
+    network.moveTo({
     position: {x:0,y:0},
     scale: 1.0,
     offset: {x:0,y:0}
   })
   
   network.on('afterDrawing', function(){
-      var dataN = [{id: 1, x: -400, y:0}, {id:2, x:0, y:0}, {id:3, x:400, y:0}];
+    var dataN = [{id: 1, x: -400, y:0}, {id:2, x:0, y:0}, {id:3, x:400, y:0}];
     nodes.update(dataN);
   })
 
 function updateNetwork(index){
     resetNodes();
-    resetEdges();
     nodes.update({id:3,color:{border:'#474747',background: '#7391ff'}})
     if(index <=3 && index >0){
         nodes.update ({id: 1, color: {background: '#ff665e'}});
@@ -72,7 +80,7 @@ function updateNetwork(index){
     edges.update({id: index, color: {color:'#de4635'},shadow: {
         enabled: true,
         color: "rgba(0,0,0,0.5)"
-      }})
+    }})
     
 }
 function resetNodes(){

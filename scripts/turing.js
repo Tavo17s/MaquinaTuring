@@ -50,6 +50,7 @@ function EvaluateStep(symbol, id){
     symbols = Machines[id][Machines[id].State]
     NextValues = symbols[symbol];
     updateNetwork(NextValues[3]);
+    setTimeout(function(){resetEdges()}, time+(time/4));
     if(symbols[symbol] == undefined) return { Error : true, Acceptable : Machines[id].Functions.Acceptable(Machines[id].State), Message : `El símbolo <strong>'${symbol}'</strong> no tiene transición definida en el estado <strong>${Machines[id].State}</strong> de esta máquina. ${symbols.ERROR ? symbols.ERROR : ''}`};
     Machines[id].State = NextValues[1];
     return { Error : false, Acceptable: Machines[id].Functions.Acceptable(Machines[id].State), Output : NextValues[0], Movement : NextValues[2] };
