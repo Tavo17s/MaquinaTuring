@@ -10,117 +10,131 @@
         <!--<link rel="stylesheet" type="text/css" href="css/fontawesome.css">-->        
     </head>
     <body>
-        <div class="page-header bg-dark text-white">
-            <center><h6>Cristian Foronda - Gustavo Solano - Jorge Villarreal</h6></center>
-          </div>
+        <center><div class="page-header bg-transparent text-white">
+            <i class="fas fa-laptop-code"></i>
+            <span class="navbar-text text-light">
+                  | Cristian Foronda - Gustavo Solano - Jorge Villarreal
+              </span>
+                  </div>
+                </center>
+        <div class="row">
+            
+            <div class="col-md-8">
+                <div class="sticky-top bg-transparent">
+                    
+                  <div class="d-flex justify-content-center mt-1 mb-5 ">
+                      <div class="row">
+                          <div class="col">
+                              <ul class="nav nav-tabs small" role="tablist">
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                    <center>
+                      <div class="d-block">
+                          <div class="col-6 my-3">
+                            <div class="text-center">
+                                <img class="img-title" src="img/title.png" class="bg-transparent" alt="titulo">
+                              </div>
+                              <div class="input-group input-group-sm mb-3"">
+                                <input type="text" class="form-control" placeholder="Cadena" id="cadena">
+                                <span class="input-group-mb-3">
+                                </span>                                  
+                              </div>
+                              <button class="btn btn-info p-2 mb-2 bg-info text-white" type="button" id="cargar" data-toggle="popover1" title="Error de entrada"  data-content="La cadena está vacía." data-placemente="right" data-trigger="focus"><span class="fas fa-arrow-circle-up"></span> Cargar</button>
+                              <button class="btn btn-info p-2 mb-2 bg-secundary text-white" id="info"><strong>?</strong></button>
+                          </div>  
+                          <div class="col-3 my-4">
+                              <p class="lead text-light">Estado: <span id="estado">0</span></p>
+                              <div class="slidecontainer text-light">
+                                Velocidad:<br>
+                                <input type="range" min="0" max="1000" value="500"  step="100"class="slider" id="rango"><p></p>
+                              </div>
+                              <div class="btn-group" role="group" aria-label="Funciones">
+                                    <button class="btn btn-info p-2 mb-2 bg-info text-white" id="evaluar" content="1"><span class="fas fa-play-circle"></span> Evaluar</button>
+                                    <button class="btn btn-info p-2 mb-2 bg-light text-dark" id="evaluar" content="1" onclick="Stop();"><span class="fas fa-stop-circle"></span> Detener</button>
+                              </div>                      
+                              
+                          </div>
+                      </div>
+                    </center>
+              </div>
         
-        <div class="sticky-top bg-white">
-            <h1 class="text-center">
-                <strong id="etiqueta">MAQUINA DE TURING</strong>
-            </h1>
-          <div class="d-flex justify-content-center mt-1 mb-5 ">
-              <div class="row">
-                  <div class="col">
-                      <ul class="nav nav-tabs small" role="tablist">
-                      </ul>
-                  </div>
-              </div>
-          </div>
-            <center>
-              <div class="d-block">
-                  <div class="col-6 my-3">
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Cadena" id="cadena">
-                        <span class="input-group-btn">
-                          <button class="btn btn-info" type="button" id="cargar" data-toggle="popover1" title="Error de entrada"  data-content="La cadena está vacía." data-placemente="right" data-trigger="focus">Cargar</button>
-                          <button class="btn btn-secondary" id="info"><strong>?</strong></button>
-                        </span>                                  
-                      </div>
-                  </div>  
-                  <div class="col-3 my-4">
-                      <p class="lead">Estado: <span id="estado">0</span></p>
-                      <div class="slidecontainer">
-                        Velocidad:<br>
-                        <input type="range" min="0" max="1000" value="500"  step="100"class="slider" id="rango"><p></p>
-                      </div>
-                      <div class="btn-group" role="group" aria-label="Funciones">
-                            <button class="btn btn-danger" id="evaluar" content="1">Evaluar</button>
-                            <button class="btn btn-warning" id="evaluar" content="1" onclick="Stop();">Detener</button>
-                      </div>                      
-                      
-                  </div>
-              </div>
-            </center>
-      </div>
-
-            <div class="tab-pane" id="tab4" role="tabpanel">
-                <center>
-                        <div class="d-inline ">
-                                <div class="col-10">
-                                    <table id="tabla4" class="table table-hover text-center table-responsive">
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>    
+                    <div class="tab-pane" id="tab4" role="tabpanel">
+                        <center>
+                                <div class="d-inline">
+                                        <div class="col-10">
+                                            <table id="tabla4" class="table table-sm-hover text-center table-responsive text-light">
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>    
+                                    </div>
+                          </center>
+                    </div>
+        
+        
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalTitle"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                  </center>
-            </div>
-
-
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalTitle"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p id="modalText" class="lead"></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <div class="modal-body">
+                                <p id="modalText" class="lead"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+        
+        
+                    <div class="modal fade" id="instrucciones4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitle"><h2>MAQUINA DE TURING</h2></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h5>Actividad:</h5>
+                                    <p class="text-center">
+                                        Construya una máquina de Turing que analice una cadena sobre {a,b, } y cambie todas sus bes y espacios por aes. La cabeza inicia sobre el primer simbolo de la izquierda y debe terminar sobre este simbolo.
+                                    </p>
+                                    <h5>Ejemplos:</h5>
+                                    <p class="text-center">
+                                        q->a b a bab<br>
+                                        Q->aaaaaaaa<br>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
+    
+    
+            <div class="bg-transparent">
+                <div id="mynetwork"></div>
+            </div>
+
         </div>
-
-
-            <div class="modal fade" id="instrucciones4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalTitle"><h2>MAQUINA DE TURING</h2></h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <h5>Actividad:</h5>
-                            <p class="text-center">
-                                Construya una máquina de Turing que analice una cadena sobre {a,b, } y cambie todas sus bes y espacios por aes. La cabeza inicia sobre el primer simbolo de la izquierda y debe terminar sobre este simbolo.
-                            </p>
-                            <h5>Ejemplos:</h5>
-                            <p class="text-center">
-                                q->a b a bab<br>
-                                Q->aaaaaaaa<br>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div id="mynetwork"></div>
-            <script type="text/javascript" src="scripts/jquery.js"></script>
-            <script type="text/javascript" src="scripts/bootstrap.js"></script>
-            <script type="text/javascript" src="scripts/turing.js"></script>
-            <script type="text/javascript" src="scripts/ui.js"></script>
-            <script type="text/javascript" src="vis/dist/vis.js"></script>
-            <script type="text/javascript" src="scripts/graph.js"></script>
+        <script src="https://kit.fontawesome.com/529971f0d9.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="scripts/jquery.js"></script>
+        <script type="text/javascript" src="scripts/bootstrap.js"></script>
+        <script type="text/javascript" src="scripts/turing.js"></script>
+        <script type="text/javascript" src="scripts/ui.js"></script>
+        <script type="text/javascript" src="vis/dist/vis.js"></script>
+        <script type="text/javascript" src="scripts/graph.js"></script>
+            
     </body>
 </html>
