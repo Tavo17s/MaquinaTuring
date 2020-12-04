@@ -91,6 +91,18 @@ body {
   background-color: #fff;
 }
 
+table::-webkit-scrollbar {
+  height: 7px;
+}
+
+table::-webkit-scrollbar-track {
+}
+
+table::-webkit-scrollbar-thumb {
+  background-color: #17a2b8;
+  border-radius: 10px;
+}
+
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }
